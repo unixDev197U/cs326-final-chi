@@ -2,7 +2,7 @@
 2. Grow
 3. Team Overview
 - Name : Github Username
-- Lucas Chagas : 
+- Lucas Chagas : DiskMethod
 - Nikil Thurai : unixDev197U
 - Zachary Williams : ztwilliams26
 4. Innovative Idea
