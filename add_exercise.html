@@ -11,15 +11,15 @@
     <title>Add/Recommend Exercise</title>
 	
 	<style>
-		#nav{
+		.option-line{
 			width:90%;
 			display: flex;
 		}
-		#nav_item{
+		.option{
 			width:100%;
 			text-align: center;
 		}
-		#section{
+		.section{
 			background-color: GhostWhite;
 			border: 5px;
 			border-style: double;
@@ -28,10 +28,10 @@
   </head>
   
    <body>
-	<div id="section">
+	<div class="section">
 		<h2>Add Exercise:</h2>
-		<div id="nav">
-			<div id="nav_item">
+		<div class="option-line">
+			<div class="option">
 				<label for="chest">Add Chest Exercise:</label>
 				<select id="chest">
 				  <option value="opt1">Option 1</option>
@@ -40,7 +40,7 @@
 				  <option value="opt4">Option 4</option>
 				</select>
 			</div>
-			<div id="nav_item">
+			<div class="option">
 				<label for="arm">Add Arm Exercise:</label>
 				<select id="arm">
 				  <option value="opt1">Option 1</option>
@@ -49,7 +49,7 @@
 				  <option value="opt4">Option 4</option>
 				</select>
 			</div>
-			<div id="nav_item">
+			<div class="option">
 				<label for="ab">Add Abdominal Exercise:</label>
 				<select id="ab">
 				  <option value="opt1">Option 1</option>
@@ -61,8 +61,8 @@
 		
 		</div>
 		<br>
-		<div id="nav">
-			<div id="nav_item">
+		<div class="option-line">
+			<div class="option">
 				<label for="back">Add Back Exercise:</label>
 				<select id="back">
 				  <option value="opt1">Option 1</option>
@@ -71,7 +71,7 @@
 				  <option value="opt4">Option 4</option>
 				</select>
 			</div>
-			<div id="nav_item">
+			<div class="option">
 				<label for="leg">Add Leg Exercise:</label>
 				<select id="leg">
 				  <option value="opt1">Option 1</option>
@@ -80,7 +80,7 @@
 				  <option value="opt4">Option 4</option>
 				</select>
 			</div>
-			<div id="nav_item">
+			<div class="option">
 				<label for="shoulder">Add Shoulder Exercise:</label>
 				<select id="shoulder">
 				  <option value="opt1">Option 1</option>
@@ -91,8 +91,8 @@
 			</div>
 		</div>
 		<br>
-		<div id="nav">
-			<div id="nav_item">
+		<div class="option-line">
+			<div class="option">
 				<label for="glute">Add Glute Exercise:</label>
 				<select id="glute">
 				  <option value="opt1">Option 1</option>
@@ -104,16 +104,16 @@
 		</div>
 		<br>	
 		<br>
-		<div id="nav">
-			<div id="nav_item">
+		<div class="option-line">
+			<div class="option">
 				<label for="sets">Set Count</label>
 				<input type="number" id="sets" name="sets">
 				<label for="reps">Rep Count</label>
 				<input type="number" id="reps" name="reps">
 			</div>
 		</div>
-		<div id="nav">
-			<div id="nav_item">
+		<div class="option-line">
+			<div class="option">
 				<div class="submit">
 					<button id="submit" onclick="func()">Submit</button>
 				</div>
@@ -121,7 +121,7 @@
 		</div>
 	</div>
 	<br>
-	<div id="section">
+	<div class="section">
 		<h2>Recommend Exercises:</h2>
 		<ul>
 			<li>Option 1</li>
