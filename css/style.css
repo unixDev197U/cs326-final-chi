@@ -106,6 +106,10 @@ h2 {
   max-width: none;
 }
 
+#contact label {
+  margin: 0;
+}
+
 #contact .stock-img,
 #contact .contact-form {
   flex: 1;
