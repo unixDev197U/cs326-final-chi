@@ -5,6 +5,10 @@ body {
 }
 
 /* Utilities */
+h2 {
+  font-weight: bold;
+}
+
 .l-heading {
   font-size: 4rem;
   margin-bottom: 0.75rem;
