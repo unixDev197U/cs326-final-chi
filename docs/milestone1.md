@@ -1,11 +1,11 @@
-#Team Chi
+# Team Chi
 
-#Grow Fitness
+# Grow Fitness
 
-#Part 0: Data Interactions
+# Part 0: Data Interactions
 
-#Part 1: Wireframes
+# Part 1: Wireframes
 
-#Part 2: Web Interface
+# Part 2: Web Interface
 
 
