@@ -26,6 +26,8 @@ This innately will incorporate updating the exercise done by the individual, and
 ![Registration Page](img/registrationWireframe.png)
 ![Exercise Page](img/exercisesWireframe.png)
 ![Profile Page](img/profileWireframe.png)
+
+The landing page for the website is a pre-login home page which the user can look over the web application and see the different description of the project. The website has a login/registration page to sign in/register to the account. From their the user is moved to the profile page that gives a summary of the user. Then they can add exercises and see what is recommended by moving to the add exercises page to add to the account.
 # Part 2: Web Interface
 ![Home Page](img/homeInterface.png)
 ![Login Page](img/loginInterface.png)
