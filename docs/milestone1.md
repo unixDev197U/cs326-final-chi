@@ -5,7 +5,7 @@
 # Part 0: Data Interactions
 
 # Part 1: Wireframes
-![navbarWireframe](img/navbarWireframe.PNG)
+![navbarWireframe](img/navbarWireframe.png)
 ![Home Page](img/homeWireframe.PNG)
 ![Login Page](img/loginWireframe.PNG)
 ![Registration Page](img/registrationWireframe.PNG)
