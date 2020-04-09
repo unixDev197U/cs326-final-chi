@@ -12,7 +12,6 @@
 ![Exercise Page](img/exercisesWireframe.png)
 ![Profile Page](img/profileWireframe.png)
 # Part 2: Web Interface
-![navbarWireframe](img/navbarInterface.png)
 ![Home Page](img/homeInterface.png)
 ![Login Page](img/loginInterface.png)
 ![Registration Page](img/registrationInterface.png)
