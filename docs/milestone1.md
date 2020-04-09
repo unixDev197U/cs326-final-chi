@@ -35,4 +35,7 @@ The landing page for the website is a pre-login home page which the user can loo
 ![Exercise Page](img/exercisesInterface.png)
 ![Profile Page](img/profileInterface.png)
 
-
+Division of Labor:
+Zach: Profile page [html], All pages [bootstrap/theme], making sure the UIs are not disjoined, Milestone 1 Write Up
+Lucas: Home page [html], Home page [bootstrap]
+Nick: Add_Exercises, Login, Registration Page [html], Write Up
