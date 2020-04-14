@@ -28,7 +28,7 @@
     <title>Your Profile</title>
   </head>
   <body class="bg-white">
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
       <a class="navbar-brand" href="#">
         <h2 class="logo mb-0">
           <span class="text-primary"><i class="fas fa-dumbbell"></i> Grow</span
@@ -47,12 +47,12 @@
             <a class="nav-link" href="#">Profile</a>
           </li>
         </ul>
+        <ul class="navbar-nav navbar-right ml-auto mr-1 my-auto">
+          <li class="navbar-text">
+            <p class="my-0">Welcome, <span id="userWelcome">Emery</span></p>
+          </li>
+        </ul>
       </div>
-      <ul class="navbar-nav navbar-right ml-auto mr-1 my-auto">
-        <li class="navbar-text">
-          <p class="my-0">Welcome, <span id="userWelcome">Emery</span></p>
-        </li>
-      </ul>
       <button
         class="navbar-toggler"
         type="button"
@@ -66,147 +66,149 @@
       </button>
     </nav>
 
-    <div class="contianer m-5" id="profileSummary">
-      <div class="media">
-        <img
-          class="mr-5 rounded-circle my-auto w-25"
-          src="https://cdn.discordapp.com/attachments/697237070720270376/697539567892430903/emery-berger-headshot.jpg"
-          alt="Profile image"
-        />
-        <div class="media-body my-auto">
-          <div class="border rounded p-3 my-3">
-            <h2 class="mb-3">
-              Personal Information
-            </h2>
-            <table class="table">
-              <tr>
-                <td>
-                  Age:
-                </td>
-                <td id="age">
-                  30
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Weight:
-                </td>
-                <td id="weight">
-                  160
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Height:
-                </td>
-                <td id="height">
-                  5'8"
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Gender:
-                </td>
-                <td id="gender">
-                  Male
-                </td>
-              </tr>
-            </table>
+    <div style="padding-top:5rem">
+      <div class="container" id="profileSummary">
+        <div class="media">
+          <img
+            class="mr-5 rounded-circle my-auto w-25"
+            src="https://cdn.discordapp.com/attachments/697237070720270376/697539567892430903/emery-berger-headshot.jpg"
+            alt="Profile image"
+          />
+          <div class="media-body my-auto">
+            <div class="border rounded p-3 my-3">
+              <h2 class="mb-3">
+                Personal Information
+              </h2>
+              <table class="table mb-0">
+                <tr>
+                  <td>
+                    Age:
+                  </td>
+                  <td id="age">
+                    30
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Weight:
+                  </td>
+                  <td id="weight">
+                    160
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Height:
+                  </td>
+                  <td id="height">
+                    5'8"
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Gender:
+                  </td>
+                  <td id="gender">
+                    Male
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <button
+              type="button"
+              class="btn btn-light float-right border"
+              id="edit">
+                Edit
+              </button>
           </div>
-          <button
-            type="button"
-            class="btn btn-light float-right border"
-            id="edit"
-          >
-            Edit
-          </button>
         </div>
       </div>
+      <div class="container p-3 border rounded my-3" id="exerciseHistory">
+        <h2 class="mb-3">
+          Exercise History
+        </h2>
+        <ul class="list-group">
+          <li class="list-group-item">
+            <span class="exerciseName">Chest Press</span>
+            <span title="Delete Exercise" class="float-right">
+              <img src="./open-iconic/svg/x.svg" />
+            </span>
+            <span class="float-right mx-3 exerciseDate">5:06 4/8/2020</span>
+          </li>
+          <li class="list-group-item">
+            <span class="exerciseName">Chest Press</span>
+            <span title="Delete Exercise" class="float-right">
+              <img src="./open-iconic/svg/x.svg" />
+            </span>
+            <span class="float-right mx-3 exerciseDate">5:06 4/8/2020</span>
+          </li>
+          <li class="list-group-item">
+            <span class="exerciseName">Chest Press</span>
+            <span title="Delete Exercise" class="float-right">
+              <img src="./open-iconic/svg/x.svg" />
+            </span>
+            <span class="float-right mx-3 exerciseDate">5:06 4/8/2020</span>
+          </li>
+          <li class="list-group-item">
+            <span class="exerciseName">Chest Press</span>
+            <span title="Delete Exercise" class="float-right">
+              <img src="./open-iconic/svg/x.svg" />
+            </span>
+            <span class="float-right mx-3 exerciseDate">5:06 4/8/2020</span>
+          </li>
+          <li class="list-group-item">
+            <span class="exerciseName">Chest Press</span>
+            <span title="Delete Exercise" class="float-right">
+              <img src="./open-iconic/svg/x.svg" />
+            </span>
+            <span class="float-right mx-3 exerciseDate">5:06 4/8/2020</span>
+          </li>
+          <li class="list-group-item">
+            <span class="exerciseName">Chest Press</span>
+            <span title="Delete Exercise" class="float-right">
+              <img src="./open-iconic/svg/x.svg" />
+            </span>
+            <span class="float-right mx-3 exerciseDate">5:06 4/8/2020</span>
+          </li>
+          <li class="list-group-item">
+            <span class="exerciseName">Chest Press</span>
+            <span title="Delete Exercise" class="float-right">
+              <img src="./open-iconic/svg/x.svg" />
+            </span>
+            <span class="float-right mx-3 exerciseDate">5:06 4/8/2020</span>
+          </li>
+          <li class="list-group-item">
+            <span class="exerciseName">Chest Press</span>
+            <span title="Delete Exercise" class="float-right">
+              <img src="./open-iconic/svg/x.svg" />
+            </span>
+            <span class="float-right mx-3 exerciseDate">5:06 4/8/2020</span>
+          </li>
+          <li class="list-group-item">
+            <span class="exerciseName">Chest Press</span>
+            <span title="Delete Exercise" class="float-right">
+              <img src="./open-iconic/svg/x.svg" />
+            </span>
+            <span class="float-right mx-3 exerciseDate">5:06 4/8/2020</span>
+          </li>
+          <li class="list-group-item">
+            <span class="exerciseName">Chest Press</span>
+            <span title="Delete Exercise" class="float-right">
+              <img src="./open-iconic/svg/x.svg" />
+            </span>
+            <span class="float-right mx-3 exerciseDate">5:06 4/8/2020</span>
+          </li>
+          <li class="list-group-item">
+            <span class="exerciseName">Chest Press</span>
+            <span title="Delete Exercise" class="float-right">
+              <img src="./open-iconic/svg/x.svg" />
+            </span>
+            <span class="float-right mx-3 exerciseDate">5:06 4/8/2020</span>
+          </li>
+        </ul>
+      </div>
     </div>
-    <div class="contianer m-5 p-3 border rounded" id="exerciseHistory">
-      <h2 class="mb-3">
-        Exercise History
-      </h2>
-      <ul class="list-group">
-        <li class="list-group-item">
-          <span class="exerciseName">Chest Press</span>
-          <span title="Delete Exercise" class="float-right">
-            <img src="./open-iconic/svg/x.svg" />
-          </span>
-          <span class="float-right mx-3 exerciseDate">5:06 4/8/2020</span>
-        </li>
-        <li class="list-group-item">
-          <span class="exerciseName">Chest Press</span>
-          <span title="Delete Exercise" class="float-right">
-            <img src="./open-iconic/svg/x.svg" />
-          </span>
-          <span class="float-right mx-3 exerciseDate">5:06 4/8/2020</span>
-        </li>
-        <li class="list-group-item">
-          <span class="exerciseName">Chest Press</span>
-          <span title="Delete Exercise" class="float-right">
-            <img src="./open-iconic/svg/x.svg" />
-          </span>
-          <span class="float-right mx-3 exerciseDate">5:06 4/8/2020</span>
-        </li>
-        <li class="list-group-item">
-          <span class="exerciseName">Chest Press</span>
-          <span title="Delete Exercise" class="float-right">
-            <img src="./open-iconic/svg/x.svg" />
-          </span>
-          <span class="float-right mx-3 exerciseDate">5:06 4/8/2020</span>
-        </li>
-        <li class="list-group-item">
-          <span class="exerciseName">Chest Press</span>
-          <span title="Delete Exercise" class="float-right">
-            <img src="./open-iconic/svg/x.svg" />
-          </span>
-          <span class="float-right mx-3 exerciseDate">5:06 4/8/2020</span>
-        </li>
-        <li class="list-group-item">
-          <span class="exerciseName">Chest Press</span>
-          <span title="Delete Exercise" class="float-right">
-            <img src="./open-iconic/svg/x.svg" />
-          </span>
-          <span class="float-right mx-3 exerciseDate">5:06 4/8/2020</span>
-        </li>
-        <li class="list-group-item">
-          <span class="exerciseName">Chest Press</span>
-          <span title="Delete Exercise" class="float-right">
-            <img src="./open-iconic/svg/x.svg" />
-          </span>
-          <span class="float-right mx-3 exerciseDate">5:06 4/8/2020</span>
-        </li>
-        <li class="list-group-item">
-          <span class="exerciseName">Chest Press</span>
-          <span title="Delete Exercise" class="float-right">
-            <img src="./open-iconic/svg/x.svg" />
-          </span>
-          <span class="float-right mx-3 exerciseDate">5:06 4/8/2020</span>
-        </li>
-        <li class="list-group-item">
-          <span class="exerciseName">Chest Press</span>
-          <span title="Delete Exercise" class="float-right">
-            <img src="./open-iconic/svg/x.svg" />
-          </span>
-          <span class="float-right mx-3 exerciseDate">5:06 4/8/2020</span>
-        </li>
-        <li class="list-group-item">
-          <span class="exerciseName">Chest Press</span>
-          <span title="Delete Exercise" class="float-right">
-            <img src="./open-iconic/svg/x.svg" />
-          </span>
-          <span class="float-right mx-3 exerciseDate">5:06 4/8/2020</span>
-        </li>
-        <li class="list-group-item">
-          <span class="exerciseName">Chest Press</span>
-          <span title="Delete Exercise" class="float-right">
-            <img src="./open-iconic/svg/x.svg" />
-          </span>
-          <span class="float-right mx-3 exerciseDate">5:06 4/8/2020</span>
-        </li>
-      </ul>
-    </div>
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
