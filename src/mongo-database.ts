@@ -2,7 +2,7 @@ export class Database {
   private MongoClient = require("mongodb").MongoClient;
   private uri =
     "mongodb+srv://guest:guest@cluster0-y0tyl.mongodb.net/test?retryWrites=true&w=majority";
-  private client;
+  private client: any;
   private collectionName: string;
   private dbName: string = "emery";
 
@@ -29,7 +29,7 @@ export class Database {
 
 	*/
     (async () => {
-      await this.client.connect().catch((err) => {
+      await this.client.connect().catch((err: any) => {
         console.log(err);
       });
     })();
