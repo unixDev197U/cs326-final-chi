@@ -1,0 +1,35 @@
+{
+  "name": "cs326-final-chi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./lib/server-main.js",
+  "scripts": {
+    "build-ts": "tsc",
+    "prepare": "npm run build-ts",
+    "start": "npm run serve",
+    "serve": "node ./lib/server-main.js"
+  },
+  "files": [
+    "./lib/*",
+    "./static/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unixDev197U/cs326-final-chi.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/unixDev197U/cs326-final-chi/issues"
+  },
+  "homepage": "https://github.com/unixDev197U/cs326-final-chi#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongodb": "^3.5.6",
+    "typescript": "^3.8.3"
+  },
+  "devDependencies": {
+    "@types/node": "^13.13.1"
+  }
+}
