@@ -19,12 +19,9 @@ export class MyServer {
       next();
     });
     // Serve static pages from a particular path.
-    this.server.use("/", express.static("../static"));
-    //// YOUR CODE GOES HERE
-    //// HANDLE CREATE, READ, UPDATE, AND DELETE OPERATIONS
-    //// HANDLE ERRORS WITH A WILDCARD (*)
-    // Start up the counter service at the endpoint /counter
+    this.server.use("/", express.static(__dirname + "/../static"));
 
+    /*Handle different routes. Example here with the counter route. 
     this.server.use("/counter", this.router);
     this.router.get("/users/:userId/read", [
       this.errorHandler.bind(this),
@@ -39,6 +36,9 @@ export class MyServer {
       this.errorHandler.bind(this),
       this.deleteHandler.bind(this),
     ]);
+    */
+
+    //// HANDLE ERRORS WITH A WILDCARD (*)
     this.router.get("/users/:userId/*", async (request, response) => {
       response.send(JSON.stringify({ result: "command-not-found" }));
     });
