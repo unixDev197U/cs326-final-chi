@@ -20,26 +20,33 @@ export class MyServer {
     });
     // Serve static pages from a particular path.
     this.server.use("/", express.static(__dirname + "/../static"));
+    // NEW: handle POST in JSON format
+    this.server.use(express.json());
 
     /*Handle different routes. Example here with the counter route. 
     this.server.use("/counter", this.router);
-    this.router.get("/users/:userId/read", [
+    this.router.post("/users/:userId/read", [
+    //this.router.get("/users/:userId/read", [
       this.errorHandler.bind(this),
       this.readHandler.bind(this),
     ]);
-    this.router.get("/users/:userId/create", this.createHandler.bind(this));
-    this.router.get("/users/:userId/update", [
+    this.router.post("/users/:userId/create", this.createHandler.bind(this));
+    //this.router.get("/users/:userId/create", this.createHandler.bind(this));
+     this.router.post("/users/:userId/update", [
+    //this.router.get("/users/:userId/update", [
       this.errorHandler.bind(this),
       this.updateHandler.bind(this),
     ]);
-    this.router.get("/users/:userId/delete", [
+    this.router.post("/users/:userId/delete", [
+   // this.router.get("/users/:userId/delete", [
       this.errorHandler.bind(this),
       this.deleteHandler.bind(this),
     ]);
     */
 
     //// HANDLE ERRORS WITH A WILDCARD (*)
-    this.router.get("/users/:userId/*", async (request: any, response: any) => {
+      this.router.post("/users/:userId/*", async (request: any, response: any) => {
+    //this.router.get("/users/:userId/*", async (request: any, response: any) => {
       response.send(JSON.stringify({ result: "command-not-found" }));
     });
   }
@@ -50,7 +57,7 @@ export class MyServer {
     next: any
   ): Promise<void> {
     let value: boolean = await this.theDatabase.isFound(
-      request.params["userId"] + "-" + request.query.name
+      request.params["userId"] + "-" + request.body.name
     );
     if (!value) {
       response.write(JSON.stringify({ result: "error" }));
@@ -62,7 +69,7 @@ export class MyServer {
 
   private async createHandler(request: any, response: any): Promise<void> {
     await this.createCounter(
-      request.params["userId"] + "-" + request.query.name,
+      request.params["userId"] + "-" + request.body.name,
       response
     );
   }
@@ -70,7 +77,7 @@ export class MyServer {
   private async readHandler(request: any, response: any): Promise<void> {
     /// YOUR CODE GOES HERE
     await this.readCounter(
-      request.params["userId"] + "-" + request.query.name,
+      request.params["userId"] + "-" + request.body.name,
       response
     );
   }
@@ -78,8 +85,8 @@ export class MyServer {
   private async updateHandler(request: any, response: any): Promise<void> {
     /// YOUR CODE GOES HERE
     await this.updateCounter(
-      request.params["userId"] + "-" + request.query.name,
-      request.query.value,
+      request.params["userId"] + "-" + request.body.name,
+      request.body.value,
       response
     );
   }
@@ -87,7 +94,7 @@ export class MyServer {
   private async deleteHandler(request: any, response: any): Promise<void> {
     /// YOUR CODE GOES HERE
     await this.deleteCounter(
-      request.params["userId"] + "-" + request.query.name,
+      request.params["userId"] + "-" + request.body.name,
       response
     );
   }
