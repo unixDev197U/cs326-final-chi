@@ -8,6 +8,7 @@ $(document).ready(async () => {
       uid: "eberger@umass.edu",
     })
   ).json();
+  console.log(profile);
   if ($("#profileSummary")) {
     $("#age").html(profile.age);
     $("#weight").html(profile.weight);

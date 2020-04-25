@@ -43,7 +43,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const postdata_1 = require("./postdata");
 $("#edit").click(() => { });
 $(document).ready(() => __awaiter(void 0, void 0, void 0, function* () {
-    let profile = yield (yield postdata_1.postData("https://localhost:8080/profileData", {
+    let profile = yield (yield postdata_1.postData("https://polar-gorge-31936.herokuapp.com/app/profileData", {
         uid: "eberger@umass.edu",
     })).json();
     if ($("#profileSummary")) {
