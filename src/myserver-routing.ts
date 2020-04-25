@@ -5,6 +5,7 @@ let url = require("url");
 let express = require("express");
 let profile = require('./profile-object');
 let path = require('path');
+let faker = require('faker');
 
 export class MyServer {
   private theDatabase: any;
@@ -27,9 +28,11 @@ export class MyServer {
     // NEW: handle POST in JSON format
     this.server.use(express.json());
 
+    // Ideally this should be something like /:uid/profileData
+    // When we call profileDataHandler, we can query the database
+    // with request.params.uid
     this.router.post("/profileData", this.profileDataHandler.bind(this));
 
-    this.router.post("/createExercise", this.createExerciseHandler.bind(this));
     //// HANDLE ERRORS WITH A WILDCARD (*)
     this.router.post("/*", async (request: any, response: any) => {
       //this.router.get("/users/:userId/*", async (request: any, response: any) => {
@@ -42,29 +45,15 @@ export class MyServer {
     if (request.body.uid) {
       //If person exists
       let data = {
-        age: profile.age,
-        weight: profile.weight,
-        height: profile.height,
+        age: profile.age, // faker.random.number()
+        weight: profile.weight, //faker.random.number()
+        height: profile.height, // `${faker.random.number()}'${faker.random.number()}"`
         sex: profile.sex,
         exercises: profile.exercises,
       };
-      response.write(JSON.stringify(data));
-      response.end();
-    }
-  }
-
-  private async createExerciseHandler(request: any, response: any): Promise<void> {
-    if (request.body.uid) {
-      //If person exists
-      let data = {
-        age: profile.age,
-        weight: profile.weight,
-        height: profile.height,
-        sex: profile.sex,
-        exercises: profile.exercises,
-      };
-      response.write(JSON.stringify(data));
-      response.end();
+      response.json(data);
+    } else {
+      response.status(400).json({ msg: `No profile with the id of ${request.body.uid}` });
     }
   }
 

@@ -46,6 +46,7 @@ $(document).ready(() => __awaiter(void 0, void 0, void 0, function* () {
     let profile = yield (yield postdata_1.postData("https://polar-gorge-31936.herokuapp.com/app/profileData", {
         uid: "eberger@umass.edu",
     })).json();
+    console.log(profile);
     if ($("#profileSummary")) {
         $("#age").html(profile.age);
         $("#weight").html(profile.weight);

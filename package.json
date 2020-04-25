@@ -27,6 +27,7 @@
   "dependencies": {
     "browserify": "^16.5.1",
     "express": "^4.17.1",
+    "faker": "^4.1.0",
     "mongodb": "^3.5.6",
     "typescript": "^3.8.3"
   },
