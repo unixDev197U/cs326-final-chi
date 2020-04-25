@@ -4,7 +4,7 @@ $("#edit").click(() => {});
 
 $(document).ready(async () => {
   let profile = await (
-    await postData("https://localhost:8080/profileData", {
+    await postData("https://polar-gorge-31936.herokuapp.com/profileData", {
       uid: "eberger@umass.edu",
     })
   ).json();
