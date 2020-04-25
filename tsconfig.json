@@ -1,10 +1,16 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "target": "es2016",
+    "skipLibCheck": true,
     "noImplicitAny": true,
-    "removeComments": true,
-    "preserveConstEnums": true,
-    "sourceMap": false,
+    "noImplicitReturns": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitThis": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "strictNullChecks": true, // good idea not to disable
+    "pretty": true,
+    "module": "commonjs",
     "outDir": "./lib"
   },
   "include": ["src/*"],

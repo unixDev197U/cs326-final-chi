@@ -5,7 +5,7 @@
   "main": "./lib/server-main.js",
   "scripts": {
     "build-ts": "tsc",
-    "prepare": "npm run build-ts",
+    "prepare": "npm run build-ts && browserify ./lib/client.js -o ./static/client.js",
     "start": "npm run serve",
     "serve": "node ./lib/server-main.js"
   },
@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/unixDev197U/cs326-final-chi#readme",
   "dependencies": {
+    "browserify": "^16.5.1",
     "express": "^4.17.1",
     "mongodb": "^3.5.6",
     "typescript": "^3.8.3"
