@@ -6,7 +6,7 @@
     "noImplicitReturns": true,
     "forceConsistentCasingInFileNames": true,
     "noImplicitThis": true,
-    "noUnusedParameters": true,
+    "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": true,
     "strictNullChecks": true, // good idea not to disable
     "pretty": true,

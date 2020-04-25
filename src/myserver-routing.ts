@@ -1,3 +1,5 @@
+import { request } from "http";
+
 let http = require("http");
 let url = require("url");
 let express = require("express");
@@ -79,14 +81,26 @@ export class MyServer {
     // NEW: handle POST in JSON format
     this.server.use(express.json());
 
+    this.router.post("/profileData", this.profileDataHandler.bind(this));
     //// HANDLE ERRORS WITH A WILDCARD (*)
-    this.router.post(
-      "/users/:userId/*",
-      async (request: any, response: any) => {
-        //this.router.get("/users/:userId/*", async (request: any, response: any) => {
-        response.send(JSON.stringify({ result: "command-not-found" }));
-      }
-    );
+    this.router.post("/*", async (request: any, response: any) => {
+      //this.router.get("/users/:userId/*", async (request: any, response: any) => {
+      response.send(JSON.stringify({ result: "command-not-found" }));
+    });
+  }
+  private async profileDataHandler(request: any, response: any): Promise<void> {
+    if (request.body.uid) {
+      //If person exists
+      let data = {
+        age: profile.age,
+        weight: profile.weight,
+        height: profile.height,
+        sex: profile.sex,
+        exercises: profile.exercises,
+      };
+      response.write(JSON.stringify(data));
+      response.end;
+    }
   }
 
   public listen(port: any): void {

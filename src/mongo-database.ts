@@ -4,7 +4,7 @@ export class Database {
     "mongodb+srv://guest:guest@cluster0-y0tyl.mongodb.net/test?retryWrites=true&w=majority";
   private client: any;
   private collectionName: string;
-  private dbName: string = "emery";
+  private dbName: string = "final-chi";
 
   constructor(collectionName: string) {
     this.collectionName = collectionName;
@@ -56,6 +56,7 @@ export class Database {
     if (result) {
       return result.value;
     } else {
+      // @ts-ignore
       return null;
     }
   }
