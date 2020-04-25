@@ -5,7 +5,7 @@
   "main": "./lib/server-main.js",
   "scripts": {
     "build-ts": "tsc",
-    "prepare": "npm run build-ts && browserify ./lib/profile.js -o ./static/scripts/profile.js",
+    "prepare": "npm run build-ts && browserify ./lib/profile.js -o ./static/scripts/profile.js && browserify ./lib/login_page.js -o ./static/scripts/login_page.js",
     "start": "npm run serve",
     "serve": "node ./lib/server-main.js"
   },
