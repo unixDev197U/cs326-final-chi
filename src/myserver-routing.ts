@@ -3,62 +3,8 @@ import { request } from "http";
 let http = require("http");
 let url = require("url");
 let express = require("express");
-
-let profile: {
-  uid: string;
-  password: string;
-  age: number;
-  weight: number;
-  height: number;
-  sex: string;
-  exercises: {
-    name: string;
-    group: {
-      chest: number;
-      back: number;
-      arms: number;
-      legs: number;
-      abs: number;
-    };
-    rep: number;
-    date: Date;
-  }[];
-  //picture: ImageBitmap;
-};
-profile = {
-  uid: "eberger@umass.edu",
-  password: "password",
-  age: 30,
-  weight: 160,
-  height: 68,
-  sex: "Male",
-  exercises: [
-    {
-      name: "Chest Press",
-      group: {
-        chest: 1,
-        back: 0,
-        arms: 1,
-        legs: 0,
-        abs: 0,
-      },
-      rep: 10,
-      date: new Date("2020-04-08T15:06:00"),
-    },
-    {
-      name: "Pull Ups",
-      group: {
-        chest: 0,
-        back: 1,
-        arms: 1,
-        legs: 0,
-        abs: 0,
-      },
-      rep: 10,
-      date: new Date("2020-04-08T15:17:00"),
-    },
-  ],
-};
+let profile = require('./profile-object');
+let path = require('path');
 
 export class MyServer {
   private theDatabase: any;
@@ -77,11 +23,13 @@ export class MyServer {
       next();
     });
     // Serve static pages from a particular path.
-    this.server.use("/", express.static(__dirname + "/../static"));
+    this.server.use("/", express.static(path.join(__dirname, "/../static")));
     // NEW: handle POST in JSON format
     this.server.use(express.json());
 
     this.router.post("/profileData", this.profileDataHandler.bind(this));
+
+    this.router.post("/createExercise", this.createExerciseHandler.bind(this));
     //// HANDLE ERRORS WITH A WILDCARD (*)
     this.router.post("/*", async (request: any, response: any) => {
       //this.router.get("/users/:userId/*", async (request: any, response: any) => {
@@ -89,6 +37,7 @@ export class MyServer {
     });
     this.server.use("/app", this.router);
   }
+
   private async profileDataHandler(request: any, response: any): Promise<void> {
     if (request.body.uid) {
       //If person exists
@@ -100,7 +49,22 @@ export class MyServer {
         exercises: profile.exercises,
       };
       response.write(JSON.stringify(data));
-      response.end;
+      response.end();
+    }
+  }
+
+  private async createExerciseHandler(request: any, response: any): Promise<void> {
+    if (request.body.uid) {
+      //If person exists
+      let data = {
+        age: profile.age,
+        weight: profile.weight,
+        height: profile.height,
+        sex: profile.sex,
+        exercises: profile.exercises,
+      };
+      response.write(JSON.stringify(data));
+      response.end();
     }
   }
 
