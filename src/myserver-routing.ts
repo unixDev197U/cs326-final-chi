@@ -2,6 +2,62 @@ let http = require("http");
 let url = require("url");
 let express = require("express");
 
+let profile: {
+  uid: string;
+  password: string;
+  age: number;
+  weight: number;
+  height: number;
+  sex: string;
+  exercises: {
+    name: string;
+    group: {
+      chest: number;
+      back: number;
+      arms: number;
+      legs: number;
+      abs: number;
+    };
+    rep: number;
+    date: Date;
+  }[];
+  //picture: ImageBitmap;
+};
+profile = {
+  uid: "eberger@umass.edu",
+  password: "password",
+  age: 30,
+  weight: 160,
+  height: 68,
+  sex: "Male",
+  exercises: [
+    {
+      name: "Chest Press",
+      group: {
+        chest: 1,
+        back: 0,
+        arms: 1,
+        legs: 0,
+        abs: 0,
+      },
+      rep: 10,
+      date: new Date("2020-04-08T15:06:00"),
+    },
+    {
+      name: "Pull Ups",
+      group: {
+        chest: 0,
+        back: 1,
+        arms: 1,
+        legs: 0,
+        abs: 0,
+      },
+      rep: 10,
+      date: new Date("2020-04-08T15:17:00"),
+    },
+  ],
+};
+
 export class MyServer {
   private theDatabase: any;
 
@@ -23,122 +79,17 @@ export class MyServer {
     // NEW: handle POST in JSON format
     this.server.use(express.json());
 
-    /*Handle different routes. Example here with the counter route. 
-    this.server.use("/counter", this.router);
-    this.router.post("/users/:userId/read", [
-    //this.router.get("/users/:userId/read", [
-      this.errorHandler.bind(this),
-      this.readHandler.bind(this),
-    ]);
-    this.router.post("/users/:userId/create", this.createHandler.bind(this));
-    //this.router.get("/users/:userId/create", this.createHandler.bind(this));
-     this.router.post("/users/:userId/update", [
-    //this.router.get("/users/:userId/update", [
-      this.errorHandler.bind(this),
-      this.updateHandler.bind(this),
-    ]);
-    this.router.post("/users/:userId/delete", [
-   // this.router.get("/users/:userId/delete", [
-      this.errorHandler.bind(this),
-      this.deleteHandler.bind(this),
-    ]);
-    */
-
     //// HANDLE ERRORS WITH A WILDCARD (*)
-      this.router.post("/users/:userId/*", async (request: any, response: any) => {
-    //this.router.get("/users/:userId/*", async (request: any, response: any) => {
-      response.send(JSON.stringify({ result: "command-not-found" }));
-    });
-  }
-
-  private async errorHandler(
-    request: any,
-    response: any,
-    next: any
-  ): Promise<void> {
-    let value: boolean = await this.theDatabase.isFound(
-      request.params["userId"] + "-" + request.body.name
-    );
-    if (!value) {
-      response.write(JSON.stringify({ result: "error" }));
-      response.end();
-    } else {
-      next();
-    }
-  }
-
-  private async createHandler(request: any, response: any): Promise<void> {
-    await this.createCounter(
-      request.params["userId"] + "-" + request.body.name,
-      response
-    );
-  }
-
-  private async readHandler(request: any, response: any): Promise<void> {
-    /// YOUR CODE GOES HERE
-    await this.readCounter(
-      request.params["userId"] + "-" + request.body.name,
-      response
-    );
-  }
-
-  private async updateHandler(request: any, response: any): Promise<void> {
-    /// YOUR CODE GOES HERE
-    await this.updateCounter(
-      request.params["userId"] + "-" + request.body.name,
-      request.body.value,
-      response
-    );
-  }
-
-  private async deleteHandler(request: any, response: any): Promise<void> {
-    /// YOUR CODE GOES HERE
-    await this.deleteCounter(
-      request.params["userId"] + "-" + request.body.name,
-      response
+    this.router.post(
+      "/users/:userId/*",
+      async (request: any, response: any) => {
+        //this.router.get("/users/:userId/*", async (request: any, response: any) => {
+        response.send(JSON.stringify({ result: "command-not-found" }));
+      }
     );
   }
 
   public listen(port: any): void {
     this.server.listen(port);
-  }
-
-  public async createCounter(name: string, response: any): Promise<void> {
-    console.log("creating counter named '" + name + "'");
-    await this.theDatabase.put(name, 0);
-    response.write(JSON.stringify({ result: "created", name: name, value: 0 }));
-    response.end();
-  }
-
-  public async errorCounter(name: string, response: any): Promise<void> {
-    response.write(JSON.stringify({ result: "error" }));
-    response.end();
-  }
-
-  public async readCounter(name: string, response: any): Promise<void> {
-    let value = await this.theDatabase.get(name);
-    response.write(
-      JSON.stringify({ result: "read", name: name, value: value })
-    );
-    response.end();
-  }
-
-  public async updateCounter(
-    name: string,
-    value: number,
-    response: any
-  ): Promise<void> {
-    console.log("updating counter named " + name + " with value " + value);
-    await this.theDatabase.put(name, value);
-    response.write(
-      JSON.stringify({ result: "updated", name: name, value: value })
-    );
-    response.end();
-  }
-
-  public async deleteCounter(name: string, response: any): Promise<void> {
-    await this.theDatabase.del(name);
-    response.write(JSON.stringify({ result: "deleted", value: name }));
-    response.end();
   }
 }
