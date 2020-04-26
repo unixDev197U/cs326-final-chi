@@ -1,8 +1,8 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-async function postData(url, data) {
-    const resp = await fetch(url, {
+async function postData(route, data) {
+    const resp = await fetch(window.location.origin + route, {
         method: "POST",
         mode: "cors",
         cache: "no-cache",
@@ -23,15 +23,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const postdata_1 = require("./postdata");
 $("#edit").click(() => { });
 $(document).ready(async () => {
-    console.log(window.location.href);
-    let profile = await postdata_1.postData(window.location.origin + "/app/profileData", {
-        uid: "eberger@umass.edu",
+    let uid = "eberger@umass.edu";
+    let profile = await await postdata_1.postData("/app/" + uid + "/profileData", {
+        session: "uniqueUserSessionToken",
     });
     if ($("#profileSummary")) {
         $("#age").html(profile.age);
         $("#weight").html(profile.weight);
         $("#height").html(profile.height);
-        $("#gender").html(profile.sex);
+        $("#gender").html(profile.sex); //The id is currently set to gender?
     }
     if ($("#exerciseHistory ul")) {
         profile.exercises.forEach((exercise) => {

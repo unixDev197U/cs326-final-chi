@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const postdata_1 = require("./postdata");
 $("sub_button").click(async function () {
-    const resp = await (await postdata_1.postData("https://polar-gorge-31936.herokuapp.com/app/login_page", {
+    const resp = await (await postdata_1.postData("/app/login", {
         uid: $("email"),
         pass: $("password1"),
     })).json();
@@ -13,8 +13,8 @@ $("sub_button").click(async function () {
 },{"./postdata":2}],2:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-async function postData(url, data) {
-    const resp = await fetch(url, {
+async function postData(route, data) {
+    const resp = await fetch(window.location.origin + route, {
         method: "POST",
         mode: "cors",
         cache: "no-cache",
