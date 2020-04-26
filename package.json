@@ -4,10 +4,8 @@
   "description": "",
   "main": "./lib/server-main.js",
   "scripts": {
-    "build-ts": "tsc",
-    "prepare": "browserify ./lib/profile.js -o ./static/src/profile.js && browserify ./lib/login_page.js -o ./static/src/login_page.js && npm run start",
-    "start": "npm run serve",
-    "serve": "node ./lib/server-main.js"
+    "prepare": "tsc && browserify ./lib/profile.js -o ./static/src/profile.js && browserify ./lib/login_page.js -o ./static/src/login_page.js && npm run start",
+    "start": "node ./lib/server-main.js"
   },
   "files": [
     "./lib/*",
