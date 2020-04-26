@@ -3,10 +3,14 @@ import { postData } from "./postdata";
 $("#edit").click(() => {});
 
 $(document).ready(async () => {
+  let uid: string = "eberger@umass.edu";
   let profile = await (
-    await postData("https://polar-gorge-31936.herokuapp.com/app/profileData", {
-      uid: "eberger@umass.edu",
-    })
+    await postData(
+      "https://polar-gorge-31936.herokuapp.com/app/" + uid + "/profileData",
+      {
+        session: "uniqueUserSessionToken",
+      }
+    )
   ).json();
   console.log(profile);
   if ($("#profileSummary")) {

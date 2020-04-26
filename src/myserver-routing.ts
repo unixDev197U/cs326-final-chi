@@ -3,9 +3,9 @@ import { request } from "http";
 let http = require("http");
 let url = require("url");
 let express = require("express");
-let profile = require('./profile-object');
-let path = require('path');
-let faker = require('faker');
+let profile = require("./profile-object");
+let path = require("path");
+let faker = require("faker");
 
 export class MyServer {
   private theDatabase: any;
@@ -31,7 +31,7 @@ export class MyServer {
     // Ideally this should be something like /:uid/profileData
     // When we call profileDataHandler, we can query the database
     // with request.params.uid
-    this.router.post("/profileData", this.profileDataHandler.bind(this));
+    this.router.post("/:uid/profileData", this.profileDataHandler.bind(this));
 
     //// HANDLE ERRORS WITH A WILDCARD (*)
     this.router.post("/*", async (request: any, response: any) => {
@@ -42,7 +42,7 @@ export class MyServer {
   }
 
   private async profileDataHandler(request: any, response: any): Promise<void> {
-    if (request.body.uid) {
+    if (request.params["uid"]) {
       //If person exists
       let data = {
         age: profile.age, // faker.random.number()
@@ -53,7 +53,9 @@ export class MyServer {
       };
       response.json(data);
     } else {
-      response.status(400).json({ msg: `No profile with the id of ${request.body.uid}` });
+      response
+        .status(400)
+        .json({ msg: `No profile with the id of ${request.body.uid}` });
     }
   }
 
