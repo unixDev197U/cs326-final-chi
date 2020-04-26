@@ -5,7 +5,7 @@
   "main": "./lib/server-main.js",
   "scripts": {
     "build-ts": "tsc",
-    "prepare": "npm run build-ts && browserify ./lib/profile.js -o ./static/scripts/profile.js && browserify ./lib/login_page.js -o ./static/scripts/login_page.js",
+    "prepare": "browserify ./lib/profile.js -o ./static/src/profile.js && browserify ./lib/login_page.js -o ./static/src/login_page.js && npm run start",
     "start": "npm run serve",
     "serve": "node ./lib/server-main.js"
   },
@@ -26,6 +26,7 @@
   "homepage": "https://github.com/unixDev197U/cs326-final-chi#readme",
   "dependencies": {
     "browserify": "^16.5.1",
+    "commonjs": "0.0.1",
     "express": "^4.17.1",
     "faker": "^4.1.0",
     "mongodb": "^3.5.6",

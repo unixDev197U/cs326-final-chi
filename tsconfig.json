@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es2016",
+    "target": "es2017",
     "skipLibCheck": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,
@@ -13,6 +13,6 @@
     "module": "commonjs",
     "outDir": "./lib"
   },
-  "include": ["src/*"],
-  "exclude": ["node_modules"]
+  "include": ["src/*", "static/scripts/login_page.js", "static/scripts/profile.js"],
+  "exclude": ["node_modules", "lib"]
 }

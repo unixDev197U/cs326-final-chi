@@ -10,5 +10,5 @@ export async function postData(url: string, data: any) {
     redirect: "follow",
     body: JSON.stringify(data),
   });
-  return resp;
+  return resp.json();
 }

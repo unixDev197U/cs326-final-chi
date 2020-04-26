@@ -17,7 +17,7 @@ $(document).ready(async () => {
     $("#age").html(profile.age);
     $("#weight").html(profile.weight);
     $("#height").html(profile.height);
-    $("#gender").html(profile.gender);
+    $("#gender").html(profile.sex); //The id is currently set to gender?
   }
   if ($("#exerciseHistory ul")) {
     profile.exercises.forEach(

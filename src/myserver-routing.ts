@@ -24,7 +24,7 @@ export class MyServer {
       next();
     });
     // Serve static pages from a particular path.
-    this.server.use("/", express.static(path.join(__dirname, "/../static")));
+    this.server.use(express.static(path.join(__dirname, "/../static")));
     // NEW: handle POST in JSON format
     this.server.use(express.json());
 
