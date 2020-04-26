@@ -4,16 +4,14 @@ $("#edit").click(() => {});
 
 $(document).ready(async () => {
   let profile = 
-    await postData("localhost:8080/profileData", { //Change to heroku url
+    await postData("http://localhost:8080/app/profileData", { //Change to heroku url
       uid: "eberger@umass.edu",
     });
-  console.log(profile);
   if ($("#profileSummary")) {
-    console.log("profile summary");
     $("#age").html(profile.age);
     $("#weight").html(profile.weight);
     $("#height").html(profile.height);
-    $("#gender").html(profile.gender);
+    $("#gender").html(profile.sex);
   }
   if ($("#exerciseHistory ul")) {
     profile.exercises.forEach(

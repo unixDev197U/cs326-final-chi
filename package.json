@@ -2,11 +2,12 @@
   "name": "cs326-final-chi",
   "version": "1.0.0",
   "description": "",
-  "main": "./src/server-main.js",
+  "main": "./lib/server-main.js",
   "scripts": {
     "build-ts": "tsc",
+    "prepare": "browserify ./lib/profile.js -o ./static/src/profile.js && browserify ./lib/login_page.js -o ./static/src/login_page.js && npm run start",
     "start": "npm run serve",
-    "serve": "node ./src/server-main.js"
+    "serve": "node ./lib/server-main.js"
   },
   "files": [
     "./lib/*",

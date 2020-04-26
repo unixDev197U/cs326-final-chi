@@ -38,7 +38,7 @@ export class MyServer {
       //this.router.get("/users/:userId/*", async (request: any, response: any) => {
       response.send(JSON.stringify({ result: "command-not-found" }));
     });
-    this.server.use("/", this.router);
+    this.server.use("/app", this.router);
   }
 
   private async profileDataHandler(request: any, response: any): Promise<void> {
