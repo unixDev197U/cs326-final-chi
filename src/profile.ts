@@ -3,13 +3,13 @@ import { postData } from "./postdata";
 $("#edit").click(() => {});
 
 $(document).ready(async () => {
-  let profile = await (
-    await postData("https://polar-gorge-31936.herokuapp.com/app/profileData", {
+  let profile = 
+    await postData("localhost:8080/profileData", { //Change to heroku url
       uid: "eberger@umass.edu",
-    })
-  ).json();
+    });
   console.log(profile);
   if ($("#profileSummary")) {
+    console.log("profile summary");
     $("#age").html(profile.age);
     $("#weight").html(profile.weight);
     $("#height").html(profile.height);

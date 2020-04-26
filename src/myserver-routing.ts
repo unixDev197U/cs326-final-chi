@@ -24,7 +24,7 @@ export class MyServer {
       next();
     });
     // Serve static pages from a particular path.
-    this.server.use("/", express.static(path.join(__dirname, "/../static")));
+    this.server.use(express.static(path.join(__dirname, "/../static")));
     // NEW: handle POST in JSON format
     this.server.use(express.json());
 
@@ -38,7 +38,7 @@ export class MyServer {
       //this.router.get("/users/:userId/*", async (request: any, response: any) => {
       response.send(JSON.stringify({ result: "command-not-found" }));
     });
-    this.server.use("/app", this.router);
+    this.server.use("/", this.router);
   }
 
   private async profileDataHandler(request: any, response: any): Promise<void> {

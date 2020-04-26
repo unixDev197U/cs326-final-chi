@@ -11,8 +11,8 @@
     "strictNullChecks": true, // good idea not to disable
     "pretty": true,
     "module": "commonjs",
-    "outDir": "./lib"
+    "outDir": "./src"
   },
-  "include": ["src/*"],
+  "include": ["src/*", "static/scripts/login_page.js", "static/scripts/profile.js"],
   "exclude": ["node_modules"]
 }
