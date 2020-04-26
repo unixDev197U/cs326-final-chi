@@ -1,5 +1,5 @@
-export async function postData(url: string, data: any) {
-  const resp = await fetch(url, {
+export async function postData(route: string, data: any) {
+  const resp = await fetch(window.location.origin + route, {
     method: "POST",
     mode: "cors",
     cache: "no-cache",

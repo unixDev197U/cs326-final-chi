@@ -4,15 +4,9 @@ $("#edit").click(() => {});
 
 $(document).ready(async () => {
   let uid: string = "eberger@umass.edu";
-  let profile = await (
-    await postData(
-      "https://polar-gorge-31936.herokuapp.com/app/" + uid + "/profileData",
-      {
-        session: "uniqueUserSessionToken",
-      }
-    )
-  ).json();
-  console.log(profile);
+  let profile = await await postData("/app/" + uid + "/profileData", {
+    session: "uniqueUserSessionToken",
+  });
   if ($("#profileSummary")) {
     $("#age").html(profile.age);
     $("#weight").html(profile.weight);
