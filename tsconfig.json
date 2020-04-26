@@ -13,6 +13,6 @@
     "module": "commonjs",
     "outDir": "./src"
   },
-  "include": ["src/*", "static/scripts/login_page.js", "static/scripts/profile.js"],
+  "include": ["src/*"],
   "exclude": ["node_modules"]
 }
