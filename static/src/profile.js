@@ -23,10 +23,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const postdata_1 = require("./postdata");
 $("#edit").click(() => { });
 $(document).ready(async () => {
-    let profile = await postdata_1.postData("http://localhost:8080/app/profileData", {
+    console.log(window.location.href);
+    let profile = await postdata_1.postData(window.location.origin + "/app/profileData", {
         uid: "eberger@umass.edu",
     });
-    console.log(profile);
     if ($("#profileSummary")) {
         $("#age").html(profile.age);
         $("#weight").html(profile.weight);

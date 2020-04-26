@@ -4,14 +4,14 @@ $("#edit").click(() => {});
 
 $(document).ready(async () => {
   let profile = 
-    await postData("http://localhost:8080/app/profileData", { //Change to heroku url
+    await postData(window.location.origin + "/app/profileData", {
       uid: "eberger@umass.edu",
     });
   if ($("#profileSummary")) {
     $("#age").html(profile.age);
     $("#weight").html(profile.weight);
     $("#height").html(profile.height);
-    $("#gender").html(profile.sex);
+    $("#gender").html(profile.sex); //The id is currently set to gender?
   }
   if ($("#exerciseHistory ul")) {
     profile.exercises.forEach(
