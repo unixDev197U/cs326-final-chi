@@ -1,7 +1,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
-const colors = require('colors');
+const colors = require('colors'); // Not necessary, but makes the console look good
 let path = require("path");
 const errorHandler = require('./middleware/error');
 const connectDB = require('./config/database');
