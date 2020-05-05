@@ -2,15 +2,12 @@
   "name": "cs326-final-chi",
   "version": "1.0.0",
   "description": "",
-  "main": "./lib/server-main.js",
+  "main": "server.js",
   "scripts": {
-    "prepare": "tsc && browserify ./lib/profile.js -o ./static/src/profile.js && browserify ./lib/login_page.js -o ./static/src/login_page.js",
-    "start": "node ./lib/server-main.js"
+    "start": "SET NODE_ENV=production& node server",
+    "prepare": "tsc & browserify ./lib/profile.js -o ./static/src/profile.js",
+    "dev": "nodemon server"
   },
-  "files": [
-    "./lib/*",
-    "./static/*"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/unixDev197U/cs326-final-chi.git"
@@ -24,10 +21,16 @@
   "homepage": "https://github.com/unixDev197U/cs326-final-chi#readme",
   "dependencies": {
     "browserify": "^16.5.1",
+    "colors": "^1.4.0",
     "commonjs": "0.0.1",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "faker": "^4.1.0",
     "mongodb": "^3.5.6",
+    "mongoose": "^5.9.12",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.3",
+    "slugify": "^1.4.0",
     "typescript": "^3.8.3"
   },
   "devDependencies": {

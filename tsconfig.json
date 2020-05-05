@@ -13,6 +13,6 @@
     "module": "commonjs",
     "outDir": "./lib"
   },
-  "include": ["src/*"],
+  "include": ["typescript_files/*"],
   "exclude": ["node_modules", "lib", "static"]
 }
