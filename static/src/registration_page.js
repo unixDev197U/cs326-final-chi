@@ -1,33 +1,6 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const operations_1 = require("./operations");
-$(document).ready(async function () {
-    $("#logo_index").click(() => {
-        window.location.replace(window.location.origin);
-    });
-    const profile = await operations_1.getProfile();
-    if (profile.success === true) {
-        window.location.replace(window.location.origin + '/profile.html');
-    }
-    $("#sub_button").click(async () => {
-        const login = {
-            email: $('#email').val(),
-            password: $('#password1').val()
-        };
-        let check = await operations_1.loginProfile(login);
-        if (check.success === true) {
-            window.location.replace(window.location.origin + '/profile.html');
-        }
-        else {
-            alert(check.error);
-        }
-    });
-});
-
-},{"./operations":2}],2:[function(require,module,exports){
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 // Used for getting the current logged in user's profile information
 async function getProfile() {
     const resp = await fetch(window.location.origin + '/profiles/me', {
@@ -183,4 +156,35 @@ async function deleteProfile() {
 }
 exports.deleteProfile = deleteProfile;
 
-},{}]},{},[1]);
+},{}],2:[function(require,module,exports){
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const operations_1 = require("./operations");
+$(document).ready(function () {
+    $("#logo_index").click(() => {
+        window.location.replace(window.location.origin);
+    });
+    $("#sub_button").click(async () => {
+        if ($('#password1').val() !== $('#password1').val()) {
+            alert("Passwords don't match");
+        }
+        else {
+            const register = {
+                name: $('#name').val(),
+                email: $('#email').val(),
+                password: $('#password1').val(),
+                sex: $('#person_sex').val(),
+                dob: $('#date-picker-example').val()
+            };
+            let check = await operations_1.registerProfile(register);
+            if (check.success === true) {
+                window.location.replace(window.location.origin + '/profile.html');
+            }
+            else {
+                alert(check.error);
+            }
+        }
+    });
+});
+
+},{"./operations":1}]},{},[2]);
