@@ -15,7 +15,10 @@ exercise and fitness.
 # UI:
 
 # APIs:
-
+- Create: The create endpoint for our project creates a new user with no exercise volume and default values for non-required parameters. 
+- Read: The read endpoint for our project reads the user data 
+- Update: The update endpoint for our project updates the object with user data 
+- Delete: The delete endpoint for our project delete the object 
 # Database:
 
 # URL Routes/Mappings:
