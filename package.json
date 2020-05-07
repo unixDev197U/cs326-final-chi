@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "SET NODE_ENV=production& node server",
+    "start": "NODE_ENV=production & node server",
     "prepare": "tsc & browserify ./lib/profile.js -o ./static/src/profile.js & browserify ./lib/login_page.js -o ./static/src/login_page.js & browserify ./lib/registration_page.js -o ./static/src/registration_page.js",
     "dev": "nodemon server"
   },
