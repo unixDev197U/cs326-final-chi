@@ -105,7 +105,8 @@ export async function deleteExercise(data: any) {
   const profile = await getProfile();
   const exercises = profile.data.exercises
   for (let i = 0; i < exercises.length; i++) {
-    if (exercises[i].name === data.name && exercises[i].rep === parseInt(data.rep)) {
+    if (exercises[i].name.toLowerCase() === data.name.toLowerCase() && exercises[i].rep === data.rep) {
+      console.log("Found it!");
       exercises.splice(i, i+1);
       break;
     }
