@@ -21,5 +21,7 @@ exercise and fitness.
 # URL Routes/Mappings:
 
 # Division of Labor:
-
+- Zach: Profile page [html], All pages [bootstrap/theme], making sure the UIs are not disjoined, Milestone 1 Write Up, home page and profile page interactivity, heroku setup
+- Lucas: Home page [html], Home page [bootstrap], edited/debugged interactivity overall, editing/debugging of API implementation, Authentication implementation
+- Nick: Add_Exercises, Login, Registration Page [html], Idea, Final Write Up, Wireframe, sign in page and registration page interactivity, data generation for the add exercises page, API design and route implementation
 # Conclusion:
