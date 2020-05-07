@@ -5,7 +5,8 @@ const {
     registerProfile,
     updateProfile,
     deleteProfile,
-    loginProfile
+    loginProfile,
+    logoutProfile
 } = require('../handlers/profiles');
 
 const {
@@ -18,10 +19,14 @@ router.route('/').get(getProfiles);
 
 router.route('/login').post(loginProfile);
 
+router.route('/logout').get(logoutProfile);
+
 router.route('/register').post(registerProfile);
 
 router.route('/me').get(protect, getProfile);
 
-router.route('/:id').put(protect, updateProfile).delete(protect, deleteProfile);
+router.route('/update').put(protect, updateProfile)
+
+router.route('/delete').delete(protect, deleteProfile);
 
 module.exports = router;

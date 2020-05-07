@@ -15,13 +15,13 @@ exports.getProfiles = asyncHandler(async (req, res, next) => {
     });
 });
 
-// @desc    Get current logged in user
+// @desc    Get profile of currently logged in user
 // @route   GET /profiles/me
 // @access  Protected
 exports.getProfile = asyncHandler(async (req, res, next) => {
     // Protect middleware is called before getProfile and sets req.user
     // Check /routes/profiles.js and /middleware/protect/js for more info
-    const profile = await Profile.findById(req.user.id);
+    const profile = await Profile.findById(req.profile.id);
 
     res.status(200).json({
         success: true,
@@ -38,17 +38,17 @@ exports.registerProfile = asyncHandler(async (req, res, next) => {
     sendTokenResponse(profile, 200, res);
 });
 
-// @desc    Update profile
-// @route   PUT /profiles/:id
+// @desc    Update profile of currently logged in user
+// @route   PUT /profiles/update
 // @access  Protected
 exports.updateProfile = asyncHandler(async (req, res, next) => {
-    const profile = await Profile.findByIdAndUpdate(req.params.id, req.body, {
+    const profile = await Profile.findByIdAndUpdate(req.profile.id, req.body, {
         new: true,
         runValidators: true
     });
 
     if (!profile) {
-        return next(new ErrorResponse(`Profile not found with id of ${req.params.id}`, 404));
+        return next(new ErrorResponse(`Profile not found with id of ${req.profile.id}`, 404));
     }
 
     res.status(200).json({
@@ -57,14 +57,14 @@ exports.updateProfile = asyncHandler(async (req, res, next) => {
     });
 });
 
-// @desc    Delete profile
-// @route   DELETE /profiles/:id
+// @desc    Delete profile of currently logged in user
+// @route   DELETE /profiles/delete
 // @access  Protected
 exports.deleteProfile = asyncHandler(async (req, res, next) => {
-    const profile = await Profile.findByIdAndDelete(req.params.id);
+    const profile = await Profile.findByIdAndDelete(req.profile.id);
 
     if (!profile) {
-        return next(new ErrorResponse(`Profile not found with id of ${req.params.id}`, 404));
+        return next(new ErrorResponse(`Profile not found with id of ${req.profile.id}`, 404));
     }
 
     res.status(200).json({
@@ -73,7 +73,7 @@ exports.deleteProfile = asyncHandler(async (req, res, next) => {
     });
 });
 
-// @desc    Login user
+// @desc    Login to profile
 // @route   POST /profiles/login
 // @access  Public
 exports.loginProfile = asyncHandler(async (req, res, next) => {
@@ -90,20 +90,35 @@ exports.loginProfile = asyncHandler(async (req, res, next) => {
     // Check for profile
     const profile = await Profile.findOne({
         email
-    }).select('+password');
+    }).select('+password'); // Remember that select is set to false in /schema/Profile.js so +password forcibly retrieves the password
 
     if (!profile) {
         return next(new ErrorResponse('Invalid credentials', 401));
     }
 
     // Check if password matches
-    const isMatch = await profile.matchPassword(password);
+    const isMatch = await profile.matchPassword(password); // This custom mongoose method is defined in /schema/Profile.js
 
     if (!isMatch) {
         return next(new ErrorResponse('Invalid credentials', 401));
     }
 
     sendTokenResponse(profile, 200, res);
+});
+
+// @desc    Logout of current profile
+// @route   GET /profiles/logout
+// @access  Public
+exports.logoutProfile = asyncHandler(async (req, res, next) => {
+    res.cookie('token', 'none', {
+        expires: new Date(Date.now() + 10 * 1000),
+        httpOnly: true
+    });
+
+    res.status(200).json({
+        success: true,
+        data: {}
+    });
 });
 
 // Get token from model, create cookie and send response

@@ -14,30 +14,32 @@ const ProfileSchema = new mongoose.Schema({
     },
     email: {
         type: String,
+        unique: true,
         required: [true, 'Please add an email'],
         match: [/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, 'Please add a valid email']
     },
     password: {
         type: String,
-        required: [true, 'Please add a password'],
+        required: [true, 'Please add a valid password with a minimum length of 6'],
         minlength: 6,
         select: false
     },
-    age: {
-        type: Number,
-        required: [true, 'Please add an age']
+    dob: {
+        type: String,
+        required: [true, 'Please add your DOB']
     },
     weight: {
         type: Number,
-        required: [true, 'Please add a weight']
+        required: [false, 'Please add a weight']
     },
     height: {
         type: String,
-        required: [true, 'Please add a height']
+        required: [false, 'Please add a height']
     },
     sex: {
         type: String,
-        required: [true, 'Please add a sex']
+        required: [true, 'Please add a sex'],
+        enum: ['Male', 'Female', 'Other']
     },
     exercises: {
         type: [Exercise],
