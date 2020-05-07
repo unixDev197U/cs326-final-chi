@@ -2,22 +2,26 @@ const express = require('express');
 const {
     getProfiles,
     getProfile,
-    createProfile,
+    registerProfile,
     updateProfile,
-    deleteProfile
+    deleteProfile,
+    loginProfile
 } = require('../handlers/profiles');
+
+const {
+    protect
+} = require('../middleware/protect');
 
 const router = express.Router();
 
-router.use((request, response, next) => {
-    response.header("Content-Type", "application/json");
-    response.header("Access-Control-Allow-Origin", "*");
-    response.header("Access-Control-Allow-Headers", "*");
-    next();
-});
+router.route('/').get(getProfiles);
 
-router.route('/').get(getProfiles).post(createProfile);
+router.route('/login').post(loginProfile);
 
-router.route('/:id').get(getProfile).put(updateProfile).delete(deleteProfile);
+router.route('/register').post(registerProfile);
+
+router.route('/me').get(protect, getProfile);
+
+router.route('/:id').put(protect, updateProfile).delete(protect, deleteProfile);
 
 module.exports = router;
