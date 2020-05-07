@@ -2,21 +2,21 @@
 
 # Grow Fitness
 
-#Overview:
+# Overview:
 
-#Team Members:
+# Team Members:
 - Name : Github Username
 - Lucas Chagas : DiskMethod
 - Nikil Thurai : unixDev197U
 - Zachary Williams : ztwilliams26
-#UI:
+# UI:
 
-#APIs:
+# APIs:
 
-#Database:
+# Database:
 
-#URL Routes/Mappings:
+# URL Routes/Mappings:
 
-#Division of Labor:
+# Division of Labor:
 
-#Conclusion:
+# Conclusion:
