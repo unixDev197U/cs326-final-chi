@@ -1,11 +1,12 @@
-const express = require('express');
-const dotenv = require('dotenv');
-const morgan = require('morgan');
-const colors = require('colors'); // Not necessary, but makes the console look good
-let path = require("path");
-const cookieParser = require('cookie-parser');
-const errorHandler = require('./middleware/error');
-const connectDB = require('./config/database');
+import express from "express";
+import dotenv from "dotenv";
+import morgan from "morgan";
+import colors from "colors"; // Not necessary, but makes the console look good
+import path from "path";
+import cookieParser from "cookie-parser";
+import errorHandler from "./middleware/error";
+import connectDB from "./config/database";
+
 
 // Load env vars
 dotenv.config({
@@ -13,10 +14,10 @@ dotenv.config({
 });
 
 // Connect to Database
-connectDB();
+await connectDB();
 
 // Route files
-const profiles = require('./routes/profiles');
+import profiles from "./routes/profiles";
 
 const app = express();
 
@@ -39,7 +40,7 @@ app.use('/profiles', profiles);
 
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 8080;
+const PORT:number = process.env.PORT || 8080;
 
 const server = app.listen(PORT, console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold));
 
