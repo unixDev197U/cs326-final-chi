@@ -1,11 +1,11 @@
-const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+import mongoose from "mongoose";
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
 const Exercise = require('../utils/exercise');
 
 mongoose.Schema.Types.Exercise = Exercise;
 
-const ProfileSchema = new mongoose.Schema({
+const ProfileSchema: Schema = new mongoose.Schema({
     name: {
         type: String,
         required: [true, 'Please add a name'],
@@ -51,13 +51,13 @@ const ProfileSchema = new mongoose.Schema({
 });
 
 // Encrypt password using bcrypt
-ProfileSchema.pre('save', async function (next) {
+ProfileSchema.pre('save', async function (next): void {
     const salt = await bcrypt.genSalt(10);
     this.password = await bcrypt.hash(this.password, salt);
 });
 
 // Sign JWT and return
-ProfileSchema.methods.getSignedJwtToken = function () {
+ProfileSchema.methods.getSignedJwtToken: Promise<void> = function () {
     return jwt.sign({
         id: this._id
     }, process.env.JWT_SECRET, {
@@ -66,7 +66,7 @@ ProfileSchema.methods.getSignedJwtToken = function () {
 }
 
 // Match user entered password to hashed password in database
-ProfileSchema.methods.matchPassword = async function (enteredPassword) {
+ProfileSchema.methods.matchPassword: Promise<void> = async function (enteredPassword) {
     return await bcrypt.compare(enteredPassword, this.password);
 }
 

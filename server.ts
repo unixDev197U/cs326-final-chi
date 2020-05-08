@@ -4,8 +4,8 @@ import morgan from "morgan";
 import colors from "colors"; // Not necessary, but makes the console look good
 import path from "path";
 import cookieParser from "cookie-parser";
-import errorHandler from "./middleware/error";
-import connectDB from "./config/database";
+const errorHandler = require("./middleware/error");
+const connectDB = require("./config/database");
 
 
 // Load env vars
@@ -17,7 +17,7 @@ dotenv.config({
 await connectDB();
 
 // Route files
-import profiles from "./routes/profiles";
+const profiles = require('./routes/profiles');
 
 const app = express();
 
