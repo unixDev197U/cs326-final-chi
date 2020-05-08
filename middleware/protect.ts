@@ -1,11 +1,11 @@
-const jwt = require('jsonwebtoken');
-const asyncHandler = require('./async');
+import jwt from "jsonwebtoken";
+import asyncHandler from "./async";
 const ErrorResponse = require('../utils/errorResponse');
 const Profile = require('../schema/Profile');
 
 // Protect routes
-exports.protect = asyncHandler(async (req, res, next) => {
-    let token;
+exports.protect: Promise<void> = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
+    let token: string;
 
     if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
         token = req.headers.authorization.split(' ')[1];
@@ -20,7 +20,7 @@ exports.protect = asyncHandler(async (req, res, next) => {
 
     try {
         // Verify token
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        const decoded: any = jwt.verify(token, process.env.JWT_SECRET);
 
         req.profile = await Profile.findById(decoded.id);
 

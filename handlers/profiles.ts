@@ -5,7 +5,7 @@ const Profile = require('../schema/Profile');
 // @desc    Get all profiles
 // @route   GET /profiles
 // @access  Public
-exports.getProfiles = asyncHandler(async (req, res, next) => {
+exports.getProfiles = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
     const profiles = await Profile.find();
 
     res.status(200).json({
@@ -18,7 +18,7 @@ exports.getProfiles = asyncHandler(async (req, res, next) => {
 // @desc    Get profile of currently logged in user
 // @route   GET /profiles/me
 // @access  Protected
-exports.getProfile = asyncHandler(async (req, res, next) => {
+exports.getProfile = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
     // Protect middleware is called before getProfile and sets req.user
     // Check /routes/profiles.js and /middleware/protect/js for more info
     const profile = await Profile.findById(req.profile.id);
@@ -32,7 +32,7 @@ exports.getProfile = asyncHandler(async (req, res, next) => {
 // @desc    Register new profile
 // @route   POST /profiles/register
 // @access  Public
-exports.registerProfile = asyncHandler(async (req, res, next) => {
+exports.registerProfile = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
     const profile = await Profile.create(req.body);
 
     sendTokenResponse(profile, 200, res);
@@ -41,7 +41,7 @@ exports.registerProfile = asyncHandler(async (req, res, next) => {
 // @desc    Update profile of currently logged in user
 // @route   PUT /profiles/update
 // @access  Protected
-exports.updateProfile = asyncHandler(async (req, res, next) => {
+exports.updateProfile = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
     const profile = await Profile.findByIdAndUpdate(req.profile.id, req.body, {
         new: true,
         runValidators: true
@@ -60,7 +60,7 @@ exports.updateProfile = asyncHandler(async (req, res, next) => {
 // @desc    Delete profile of currently logged in user
 // @route   DELETE /profiles/delete
 // @access  Protected
-exports.deleteProfile = asyncHandler(async (req, res, next) => {
+exports.deleteProfile = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
     const profile = await Profile.findByIdAndDelete(req.profile.id);
 
     if (!profile) {
@@ -76,7 +76,7 @@ exports.deleteProfile = asyncHandler(async (req, res, next) => {
 // @desc    Login to profile
 // @route   POST /profiles/login
 // @access  Public
-exports.loginProfile = asyncHandler(async (req, res, next) => {
+exports.loginProfile = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
     const {
         email,
         password,
@@ -109,7 +109,7 @@ exports.loginProfile = asyncHandler(async (req, res, next) => {
 // @desc    Logout of current profile
 // @route   GET /profiles/logout
 // @access  Public
-exports.logoutProfile = asyncHandler(async (req, res, next) => {
+exports.logoutProfile = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
     res.cookie('token', 'none', {
         expires: new Date(Date.now() + 10 * 1000),
         httpOnly: true
