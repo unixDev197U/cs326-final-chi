@@ -28,11 +28,23 @@ exercise and fitness.
 - Create: The create endpoint for our project creates a new user with no exercise volume and default values for non-required parameters. 
 - Read: The read endpoint for our project reads the user data 
 - Update: The update endpoint for our project updates the object with user data 
-- Delete: The delete endpoint for our project delete the object 
+- Delete: The delete endpoint for our project delete the object
+
 # Database:
+## Schema:
+- name: String (Required)
+- email: String (Required)
+- password: String (Required)
+- dob: String (Required)
+- sex: String (Required)
+- weight: Number
+- height: String
+- exercises: mongoose.Schema.Types.Exercise
+- accountedCreated: Date
+
+Passwords are encrypted using bcryptjs
 
 # URL Routes/Mappings:
-
 ## Indices
 
 * [Default](#default)
