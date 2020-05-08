@@ -28,3 +28,4 @@ exercise and fitness.
 - Lucas: Home page [html], Home page [bootstrap], edited/debugged interactivity overall, editing/debugging of API implementation, Authentication implementation
 - Nick: Add_Exercises, Login, Registration Page [html], Idea, Final Write Up, Wireframe, sign in page and registration page interactivity, data generation for the add exercises page, API design and route implementation
 # Conclusion:
+- Our team found this an interesting Group Project to work on. With the effects of COVID-19 it was impossible for our group to come togeather and work on the project, as a result the production cycle had to be extended longer in order for us to make our checkpoints in development. Having a better understanding of typescript as well as back-end implementation would have been extremely useful beforehand.
