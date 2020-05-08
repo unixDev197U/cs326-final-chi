@@ -13,12 +13,16 @@ exercise and fitness.
 - Nikil Thurai : unixDev197U
 - Zachary Williams : ztwilliams26
 # UI:
-- The landing page for the website is a pre-login home page which the user can look over the web application and see the different description of the project. The website has a login/registration page to sign in/register to the account. From their the user is moved to the profile page that gives a summary of the user. Then they can add exercises and see what is recommended by moving to the add exercises page to add to the account.
+- pre-login home page: is the landing page for the website which the user can look over the web application
+- login/registration page: to sign in/register to the account. 
+- profile page: that gives a summary of the user. 
+- add exercises page: and see what is recommended by moving to the add exercises page to add to the account.
 ![Home Page](img/homeInterface.png)
 ![Login Page](img/loginInterface.png)
 ![Registration Page](img/registrationInterface.png)
-![Exercise Page](img/exercisesInterface.png)
 ![Profile Page](img/profileInterface.png)
+![Exercise Page](img/exercisesInterface.png)
+
 
 # APIs:
 - Create: The create endpoint for our project creates a new user with no exercise volume and default values for non-required parameters. 
