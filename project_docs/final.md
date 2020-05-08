@@ -1,6 +1,6 @@
-# Team Chi-S2020
+# Team Chi:S2020
 
-# Grow Fitness
+# GrowFitness
 
 # Overview:
 - Our application is a fitness optimization website. Specifically, this web app differs from traditional fitness websites through its implemented solution. Instead of the typical "design a workout", then save and upload it; our service has the user input what workout routines they already
