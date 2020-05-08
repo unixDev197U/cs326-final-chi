@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
 const connectDB: Promise<void> = async () => {
     const conn = await mongoose.connect(process.env.MONGO_URI, {
