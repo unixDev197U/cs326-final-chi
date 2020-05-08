@@ -10,7 +10,7 @@ exercise and fitness.
 # Team Members:
 - Name : Github Username
 - Lucas Chagas : DiskMethod
-- Nikil Thurai : unixDev197U
+- Nikil Thurai : unixDev197U, nthurai
 - Zachary Williams : ztwilliams26
 # UI:
 - pre-login home page: is the landing page for the website which the user can look over the web application
