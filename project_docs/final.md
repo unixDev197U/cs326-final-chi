@@ -30,8 +30,7 @@ exercise and fitness.
 - Update: The update endpoint for our project updates the object with user data 
 - Delete: The delete endpoint for our project delete the object
 
-# Database:
-## Schema:
+# Database Schema:
 - name: String (Required)
 - email: String (Required)
 - password: String (Required)
