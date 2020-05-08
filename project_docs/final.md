@@ -33,10 +33,6 @@ exercise and fitness.
 
 # URL Routes/Mappings:
 
-# cs326 API
-
-
-
 ## Indices
 
 * [Default](#default)
